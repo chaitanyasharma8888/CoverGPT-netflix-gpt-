@@ -51,7 +51,30 @@ NOTE:: configure the tailwind css is very important (debuuging if not working)
 install tailwind intellisence for suggestion  
 
 3::
--->
+-->Configure github and push all code there
+
+
+4::
+Install
+ES7+ React/Redux/React-Native snippets extension for rafce (boiler plate)
+
+5::
+Install (react-router-dom)
+-->npm i -D react-router-dom
+-->configure react router to app and provide routes
+
+
+6::
+-->created Header Icon of Netflix
+   className:"bg-gradient-to-b from-black" ---->background gradient to bottom -->(gives kind of black shadow to background from top to bottom)
+
+7::
+-->created login form   
+-->implement CSS
+
+8::
+-->created a sign up form (NOTE:: converted same sign in form to sign out form via ternary conditioning)
+-->implement CSS
 
 
 */}
