@@ -37,7 +37,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute px-8 py-4 bg-transparent z-10 ">
+    <div className="absolute px-8 my-3 py-4 bg-transparent z-10 ">
       <img
         className="w-36"
         src="https://static.vecteezy.com/system/resources/thumbnails/035/512/573/small_2x/circular-golden-leaf-branches-award-frame-logo-design-luxury-gold-wreath-png.png"

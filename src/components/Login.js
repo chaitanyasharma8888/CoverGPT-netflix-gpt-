@@ -105,14 +105,14 @@ const Login = () => {
       <Header />
       <div>
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/6863f6e8-d419-414d-b5b9-7ef657e67ce4/web/IN-en-20250602-TRIFECTA-perspective_27a3fdfa-126f-4148-b153-55d60b51be6a_large.jpg"
+          src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bW92aWUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww"
           alt="logo"
-          className="absolute z-9"
+          className="absolute z-9 w-screen h-screen"
         />
       </div>
       <div className="py-16 w-1/2  rounded-lg  mx-auto left-0 right-0">
         {/* <h2>Sign In</h2> */}
-        <form className="bg-black bg-opacity-80 50 relative z-8 mx-36 py-24 display flex flex-col text-white ">
+        <form className="bg-black bg-opacity-50 50 relative z-8 mx-36 py-24 display flex flex-col text-white rounded-xl border-2 border-red-600 ">
           <h1 className="font-extrabold py-2 mx-20">
             {isSignInForm ? "Sign In" : "Sign Up"}
           </h1>
@@ -145,21 +145,22 @@ const Login = () => {
             </p>
           }
           <button
-            className="bg-red-700 hover:bg-red-500 hover:cursor-pointer py-2 px-16 rounded-lg mx-20 my-6"
+            className="bg-red-700 hover:bg-red-500 hover:cursor-pointer py-2 px-16 rounded-lg mx-20 my-2"
             onClick={handleButtonClick}
           >
             {isSignInForm ? "Sign In" : "Sign Out"}
           </button>
-          <p
-            className="my-6 mx-20 hover:cursor-pointer text-center hover:text-gray-400"
-            onClick={toggleSignForm}
-          >
-            {isSignInForm
-              ? "New to Cover ? Sign up now."
-              : "Already register? Sign in now."}
-
-          </p>
-          <p className="my-6 mx-20 hover:cursor-pointer text-center hover:text-gray-400">“DEMO ONLY - No data collection occurs”.</p>
+          <p className="my-3 mx-12  text-center hover:text-gray-300 font-extrabold">
+            <span onClick={toggleSignForm} className="hover:cursor-pointer">
+              {isSignInForm
+                ? "New to Cover ? Sign up now."
+                : "Already register? Sign in now."}
+            </span>
+            </p>
+            <br />
+            <span className=" text-center font-extrabold">“DEMO ONLY - No data collection occurs”</span>
+          
+          {/* <p className="my-6 mx-20 hover:cursor-pointer text-center hover:text-gray-400">“DEMO ONLY - No data collection occurs”.</p> */}
         </form>
       </div>
     </div>
