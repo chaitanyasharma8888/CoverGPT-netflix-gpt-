@@ -8,15 +8,13 @@ import {
 } from "firebase/auth"; //from firebase
 
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-
-  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -62,12 +60,15 @@ const Login = () => {
           })
             .then(() => {
               // Profile updated! successfully we have to dispatch action and update the store again with updated values
-              const { uid, email, displayName,photoURL } = auth.currentUser;//not use user(because user don't have updated value and this time we will want a new updated value which auth have which comes from getAuth() function)
-                      dispatch(addUser( {uid: uid, email: email, displayName: displayName ,photoURL:photoURL})); 
-                    
-              console.log("displayName: nameData,", nameData);
-              navigate("/browse");
-              // ...
+              const { uid, email, displayName, photoURL } = auth.currentUser; //not use user(because user don't have updated value and this time we will want a new updated value which auth have which comes from getAuth() function)
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
             })
             .catch((error) => {
               // An error occurred
@@ -90,9 +91,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -157,9 +155,11 @@ const Login = () => {
             onClick={toggleSignForm}
           >
             {isSignInForm
-              ? "New to Netflix ? Sign up now."
+              ? "New to Cover ? Sign up now."
               : "Already register? Sign in now."}
+
           </p>
+          <p className="my-6 mx-20 hover:cursor-pointer text-center hover:text-gray-400">“DEMO ONLY - No data collection occurs”.</p>
         </form>
       </div>
     </div>

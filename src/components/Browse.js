@@ -2,22 +2,23 @@ import React from "react";
 import Header from "./Header";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
-import {useSelector} from "react-redux";
+// import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
-  const navigate = useNavigate();
-  const user=useSelector(store=>store.userReducer)
-  console.log("user Browse",user.photoURL)
+  // const navigate = useNavigate();
+  const user = useSelector((store) => store.userReducer);
+  // console.log("user Browse",user.photoURL)
 
+  if (!user) return null;
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/");
+        // navigate("/");//no need to route here we are redirecting from Header onAuthStateChanged listner
       })
       .catch((error) => {
         // An error happened.
-        navigate("/error");
+        // navigate("/error");
       });
   };
 
@@ -29,7 +30,7 @@ const Browse = () => {
         </div>
         <div className="display flex justify-evenly m-1">
           <img
-          className="w-10 h-10 my-6 rounded-md "
+            className="w-10 h-10 my-6 rounded-md "
             src={user.photoURL}
             alt="logo"
           />

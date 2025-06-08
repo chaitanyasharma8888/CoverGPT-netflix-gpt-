@@ -247,6 +247,11 @@ FIREBASE STEPS:
 3)firebase init
 4)firebase deploy
 
+Steps to re-deploy updates::
+-->for deploy updated code to Firebase to see/render updated UI
+note: 1)npm run build (v.v imp step )beacuse firebase takes code from build folder not from your source code
+      2)firebase deploy
+
 
 NOTE::in firebase authentication(part disable CORS extension)
 
@@ -290,7 +295,7 @@ so we use hook useNavigate() hook (GO to Login.js file and use Navigate hook the
 -->Use Update API from fireBase (to get displayName, photoURL ) UPDATED after user signup/register successfully
 
 NOTE::
---> onAuthStateChanged(auth, (user) => 
+--> onAuthStateChanged(auth, (user) => (V.V.IMP)
 Definition-->>{//It listens for changes in the user's authentication state (sign-in, sign-out, token refresh).It automatically detects if a user is already logged in when the app loads (using stored credentials like cookies or local storage).It provides immediate updates whenever the authentication state changes.
 
 
@@ -326,8 +331,20 @@ if (!isSignInForm) {
             });
 
 
+--------------08-06-2025------------
 
 14::
+(BUGS FIXED)
+  1)If we are using /browse even user is not login it redirect to browse page we have to restrict that first i.e redirect to login page only when user is login
+  2)if user is login already(and leave the website without signout) then we have to show browse page no need to show login page first.  (i.e if login successfullt url is /browse then if someone try to edit url to / and user is still logged in then still showing /browse page not /(home page))
+
+  solution below:
+ 2)solved
+  -->//we are writing this inside header because we want to  use Navigate hook(and navigate hook only use inside router component(i.e route provider) so Header is commom place which is always present and also in router other we we use navigate outside router it gives error)
+
+
+
+
 
 TMDB API's use to build/show/fetch movies (stable API not keep changing frequently) and build browse page
 
