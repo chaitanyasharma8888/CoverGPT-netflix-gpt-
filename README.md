@@ -339,16 +339,38 @@ if (!isSignInForm) {
   2)if user is login already(and leave the website without signout) then we have to show browse page no need to show login page first.  (i.e if login successfullt url is /browse then if someone try to edit url to / and user is still logged in then still showing /browse page not /(home page))
 
   solution below:
- 2)solved
+ solved
   -->//we are writing this inside header because we want to  use Navigate hook(and navigate hook only use inside router component(i.e route provider) so Header is commom place which is always present and also in router other we we use navigate outside router it gives error)
 
+-->clean up in Header when components unmounts (unsubscribe)
 
-
+-->Note:: Use constants for hard coded strings 
 
 15::
 TMDB API's use to build/show/fetch movies (stable API not keep changing frequently) and build browse page
 
--->            
+-->NOTE::(IF use useEffect for APi call and pass empty array of dependency empty even then  when page/component renders it call API's two times)   it's due to appscaffolding sometimes it add restricted at root level if you remove that then it only render one time. but if you keep that stricted it only happend two times in local but for production no happens.
+Reason:main reason is basically react did some extra rendering  just to check inconsistency between in calls in project only happened in development    
+root.render(
+  //<React.StrictMode>
+    <App />
+  //</React.StrictMode>
+);
 
+
+16::
+-->API call for Playing movie
+i.e create different slice and dipatch action in browse to fetch movies data
+
+----------------------(Date 16-06-2025)------------------------
+
+17::
+Best practise:: (make fetch and render thing separate)
+-->now refactor code in browse i.e only show/render movies not fetch (move fetch data into custom hook)
+
+
+
+18::
+starts building browse page
 
 */}

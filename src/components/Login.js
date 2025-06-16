@@ -11,6 +11,7 @@ import { auth } from "../utils/firebase";
 
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { PHOTO_URL } from "../utils/constant";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
@@ -56,7 +57,7 @@ const Login = () => {
             //here it's not updating even we update values (kind of bug )in depth basically (we are putting values Name,password,Gmail from form and when click on sign up button that time store is updated but that time displayname,phoo url is not there and after that we are dispatching the data(i.e use firebase API) where we update value i.e display name,photoURL, SO THAT'S WHY IT'S NOT UPdating first time in store because update firebase API call after create user (in which we are updating displayname, photourl) SO SOLUTION FOR THAT is dispatch action to store after update the displayName, photourl so that store have all updated values/data this time including displayName,photourl)
             displayName: nameData,
             photoURL:
-              "https://png.pngtree.com/png-vector/20191003/ourmid/pngtree-user-login-or-authenticate-icon-on-gray-background-flat-icon-ve-png-image_1786166.jpg", //I not used this
+              PHOTO_URL, //I not used this
           })
             .then(() => {
               // Profile updated! successfully we have to dispatch action and update the store again with updated values

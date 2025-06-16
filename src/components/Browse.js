@@ -1,16 +1,25 @@
-import React from "react";
+import React, { use } from "react";
 import Header from "./Header";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 // import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import SecondaryContainer from "./SecondaryContainer";
+import MainContainer from "./MainContainer";
 
 const Browse = () => {
   // const navigate = useNavigate();
-  const user = useSelector((store) => store.userReducer);
+  const user = useSelector((store) => store.user);
   // console.log("user Browse",user.photoURL)
 
+  const playingMovies = useNowPlayingMovies();
+
+  const movies = useSelector((store) => store.movies.nowPlayingMovies);
+  console.log("movies from store", movies);
+
   if (!user) return null;
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -46,6 +55,16 @@ const Browse = () => {
           </div>
         </div>
       </div>
+
+      <MainContainer />
+      <SecondaryContainer />
+
+      {/* {--main container
+            --background video
+            --movie title
+          --secondary container
+            --movies row*n 
+              --card*n  } */}
     </div>
   );
 };

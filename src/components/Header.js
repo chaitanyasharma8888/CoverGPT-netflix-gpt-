@@ -4,6 +4,7 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import {useNavigate} from "react-router-dom"
+import {LOGO} from "../utils/constant";
 
 const Header = () => {
    const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Header = () => {
       //It listens for changes in the user's authentication state (sign-in, sign-out, token refresh).It automatically detects if a user is already logged in when the app loads (using stored credentials like cookies or local storage).It provides immediate updates whenever the authentication state changes.
       if (user) {
         //sign in case (user is object where we will get many details like email,display name)
-        console.log(user);
+        // console.log(user);
         const { uid, email, displayName, photoURL } = user;
         dispatch(
           addUser({
@@ -33,6 +34,7 @@ const Header = () => {
         navigate("/")
       }
     });
+    //unsubscribe when components unmounts
     return () => unsubscribe();
   }, []);
 
@@ -40,7 +42,7 @@ const Header = () => {
     <div className="absolute px-8 my-3 py-4 bg-transparent z-10 ">
       <img
         className="w-36"
-        src="https://static.vecteezy.com/system/resources/thumbnails/035/512/573/small_2x/circular-golden-leaf-branches-award-frame-logo-design-luxury-gold-wreath-png.png"
+        src={LOGO}
         alt="logo"
       />
     </div>
