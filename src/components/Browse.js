@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 import Header from "./Header";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
@@ -16,7 +16,7 @@ const Browse = () => {
   const playingMovies = useNowPlayingMovies();
 
   const movies = useSelector((store) => store.movies.nowPlayingMovies);
-  console.log("movies from store", movies);
+  // console.log("movies from store", movies);
 
   if (!user) return null;
 
@@ -30,24 +30,29 @@ const Browse = () => {
         // navigate("/error");
       });
   };
-
   return (
-    <div>
-      <div className="display flex justify-between">
-        <div>
-          <Header />
-        </div>
-        <div className="display flex justify-evenly m-1">
-          <img
-            className="w-10 h-10 my-6 rounded-md "
-            src={user.photoURL}
-            alt="logo"
-          />
-          <h5 className="my-8 font-bold m-1">{user.displayName}</h5>
+    <div className="relative">
+      {/* Video Background - fixed position covering whole screen */}
+      <MainContainer />
 
+      {/* Header Bar - fixed at top of screen */}
+      <div className="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-black to-transparent">
+        <div className="flex justify-between items-center p-4 ">
+          {/* Left side - Header */}
           <div>
+            <Header />
+          </div>
+
+          {/* Right side - User info and Sign Out button */}
+          <div className="flex items-center space-x-4">
+            <img
+              className="w-10 h-10 rounded-md"
+              src={user.photoURL}
+              alt="User profile"
+            />
+            <h5 className="font-bold text-white">{user.displayName}</h5>
             <button
-              className="bg-red-700 hover:bg-red-500 hover:cursor-pointer py-2 px-10 rounded-lg my-6  text-white font-bold"
+              className="bg-red-700 hover:bg-red-500 hover:cursor-pointer py-2 px-4 rounded-lg text-white font-bold"
               onClick={handleSignOut}
             >
               Sign Out
@@ -56,15 +61,8 @@ const Browse = () => {
         </div>
       </div>
 
-      <MainContainer />
+      {/* Movie content will be positioned by MainContainer/VideoTitle */}
       <SecondaryContainer />
-
-      {/* {--main container
-            --background video
-            --movie title
-          --secondary container
-            --movies row*n 
-              --card*n  } */}
     </div>
   );
 };

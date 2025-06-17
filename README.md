@@ -373,4 +373,14 @@ Best practise:: (make fetch and render thing separate)
 18::
 starts building browse page
 
+
+-----------------------Date 17/6/25
+
+19::
+create customhook for fetch trailerVideo and doing modular coding or separation of concerns (this helps in testing,code become more modular,code become more readable)
+
+
+20::
+MAKE  trailer video at background autoplay use youtube video ambed code
+
 */}

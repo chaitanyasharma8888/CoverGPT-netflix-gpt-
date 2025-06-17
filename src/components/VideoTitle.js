@@ -1,19 +1,19 @@
 const VideoTitle = ({ title, overview }) => {
   return (
-    <>
-      <div className="m-16 px-12">
-        <h1 className="font-extrabold text-6xl">{title}</h1>
-        <p className="p-6 text-xl w-[650px]">{overview}</p>
-        <div className="p-6">
-          <button className="bg-gray-500 bg-opacity-85 text-white m-1 py-3 px-6 border rounded-lg font-semibold hover:bg-gray-600 shadow-lg hover:bg-opacity-85">
-           ▶ Play
-          </button>
-          <button className="bg-gray-500 bg-opacity-85 text-white m-1 py-3 px-6 border rounded-lg font-semibold hover:bg-gray-600 shadow-lg hover:bg-opacity-85">
-           ℹ More Info
-          </button>
-        </div>
+    <div className="relative z-10 px-32 text-white pt-[20%] py-1">
+      {" "}
+      {/* z-10 and adjusted padding */}
+      <h1 className="font-extrabold text-6xl">{title}</h1>
+      <p className="p-6 text-xl w-[650px]">{overview}</p>
+      <div className="p-6">
+        <button className="bg-white  text-black m-1 py-3 px-6 border rounded-md font-semibold hover:opacity-50 ">
+          Play
+        </button>
+        <button className="bg-white  text-black m-1 py-3 px-6 border rounded-md font-semibold hover:opacity-50 ">
+          More Info
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 
