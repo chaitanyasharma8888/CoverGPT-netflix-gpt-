@@ -383,4 +383,23 @@ create customhook for fetch trailerVideo and doing modular coding or separation 
 20::
 MAKE  trailer video at background autoplay use youtube video ambed code
 
+
+21::---------------------18/6/25---------------------
+secondary container
+    MovieList-popular
+       moviecard*n
+    MovieList- Now Playing
+    MovieList- Trending
+    MovieList- Horror
+
+-->create    MoviesList.js and Moviecard.js
+
+22::---------------------19/6/25---------------------
+
+use TMDI movie fetch API from TMDB API
+created different movies card horizontally using TMDI api for popular movies,trending etc
+create separte customhook() for API call and store data in Store
+
+
+
 */}

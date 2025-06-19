@@ -8,12 +8,12 @@ const VideoBackground = ({ movieID }) => {
   // Early return if no trailerVideo
   if (!trailerVideo) return null; // or return a loading spinner
   return (
-    <div className="fixed top-0 left-0 w-full h-full z-0">
+    <div className="fixed top-0 left-0 w-full h-full z-0 -mt-8">
       {" "}
       {/* fixed positioning and z-0 */}
       <iframe
-        className="w-full h-full"
-        // className="w-screen aspect-video"
+        // className="w-full h-full"
+        className="w-screen aspect-video"
         src={
           "https://www.youtube.com/embed/" +
           trailerVideo.key +

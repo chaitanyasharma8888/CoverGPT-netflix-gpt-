@@ -39,9 +39,9 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="absolute px-8bg-transparent z-10 ">
+    <div className="absolute px-8bg-transparent z-10 p-0 m-0">
       <img
-        className="w-28"
+        className="w-[62px] -mt-7"
         src={LOGO}
         alt="logo"
       />
